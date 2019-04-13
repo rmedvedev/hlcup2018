@@ -159,12 +159,12 @@ func (account *Account) GetYear() string {
 func (account *Account) GetPremium() string {
 
 	if int64(account.Premium.Start) <= timestamp && int64(account.Premium.Finish) >= timestamp {
-		return "1"
+		return PremiumNow
 	}
 
 	if account.Premium.Start > 0 && account.Premium.Finish > 0 {
-		return "2"
+		return PremiumExist
 	}
 
-	return ""
+	return PremiumNone
 }
